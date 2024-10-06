@@ -1,5 +1,14 @@
-h2, h3 {
+.card {
+    background-color: #f9f9f9; /* Cor de fundo cinza claro */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espaçamento entre cards */
+  }
+  
+  h2, h3 {
     text-align: center;
+    color: #333;
   }
   
   form {
@@ -12,12 +21,38 @@ h2, h3 {
     width: 60%;
     margin-right: 10px;
     font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
   }
   
   button {
     padding: 10px;
     margin: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
   }
+  
+  button i {
+    margin: 0 auto;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
   
   ul {
     list-style-type: none;
@@ -28,8 +63,14 @@ h2, h3 {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid #ccc;
+    border-radius: 4px;
     margin-bottom: 5px;
+    background-color: #e3e3e3;
+    transition: background-color 0.3s;
+  }
+  
+  li:hover {
+    background-color: #f1f1f1;
   }
   
   li span {
