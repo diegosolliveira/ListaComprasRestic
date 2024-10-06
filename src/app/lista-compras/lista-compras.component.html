@@ -1,30 +1,39 @@
-
-<h3>Não Comprados</h3>
-<ul>
-  <li *ngFor="let item of items; let i = index">
-    <ng-container *ngIf="!item.bought">
-      <div *ngIf="item.editing">
-        <input type="text" [(ngModel)]="item.name" (blur)="saveItem(item, item.name)" required>
-        <button (click)="saveItem(item, item.name)">Salvar</button>
-      </div>
-
-      <div *ngIf="!item.editing">
-        <span>{{ item.name }}</span>
-        <button (click)="editItem(item)">Editar</button>
-        <button (click)="toggleBought(item)">Marcar como Comprado</button>
-        <button (click)="deleteItem(i)">Excluir</button>
-      </div>
-    </ng-container>
-  </li>
-</ul>
-
-<h3>Comprados</h3>
-<ul>
-  <li *ngFor="let item of items; let i = index">
-    <ng-container *ngIf="item.bought">
-      <span style="text-decoration: line-through;">{{ item.name }}</span>
-      <button (click)="toggleBought(item)">Desmarcar como Comprado</button>
-      <button (click)="deleteItem(i)">Excluir</button>
-    </ng-container>
-  </li>
-</ul>
+<div>
+    <h2>Lista de Compras</h2>
+    
+    <form (submit)="addItem()">
+      <input type="text" [(ngModel)]="newItem" name="newItem" placeholder="Adicione um item" required>
+      <button type="submit">Adicionar</button>
+    </form>
+  
+    <h3>Não Comprados</h3>
+    <ul>
+      <li *ngFor="let item of items; let i = index">
+        <ng-container *ngIf="!item.bought">
+          <div *ngIf="item.editing">
+            <input type="text" [(ngModel)]="item.name" name="itemName{{i}}" (blur)="saveItem(item, item.name)" required>
+            <button (click)="saveItem(item, item.name)">Salvar</button>
+          </div>
+  
+          <div *ngIf="!item.editing">
+            <span>{{ item.name }}</span>
+            <button (click)="editItem(item)">Editar</button>
+            <button (click)="toggleBought(item)">Marcar como Comprado</button>
+            <button (click)="deleteItem(i)">Excluir</button>
+          </div>
+        </ng-container>
+      </li>
+    </ul>
+  
+    <h3>Comprados</h3>
+    <ul>
+      <li *ngFor="let item of items; let i = index">
+        <ng-container *ngIf="item.bought">
+          <span style="text-decoration: line-through;">{{ item.name }}</span>
+          <button (click)="toggleBought(item)">Desmarcar como Comprado</button>
+          <button (click)="deleteItem(i)">Excluir</button>
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+  
