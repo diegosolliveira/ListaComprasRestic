@@ -1,15 +1,59 @@
-.card {
-  background-color: #f9f9f9;
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
   margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.username {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.logout-button {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 12px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+  font-size: 1em;
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .lista {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 20px;
 }
 
 .editing {
@@ -29,41 +73,40 @@ form {
   text-align: center;
 }
 
-input[type="text"] {
-  padding: 8px;
-  width: 60%;
+input[type="text"],
+input[type="number"] {
+  padding: 12px;
   margin-right: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: #f9f9f9;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="number"]:focus {
   border-color: #007bff;
   outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 button {
-  padding: 10px;
-  margin: 5px;
+  padding: 14px 15px;
+  margin: 0px 5px;
   border: none;
   border-radius: 4px;
   background-color: #007bff;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-}
-
-button i {
-  margin: 0 auto;
+  font-weight: bold;
 }
 
 button:hover {
   background-color: #0056b3;
   transform: scale(1.05);
 }
-
 
 ul {
   list-style-type: none;
@@ -72,19 +115,43 @@ ul {
 
 li {
   display: grid;
-  grid-template-columns: 1fr 0fr 0fr;
+  grid-template-columns: 1fr auto auto;
   justify-content: space-between;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 5px;
-  align-items: center;
-  transition: background-color 0.3s;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: #e9ecef;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+li:hover {
+  background-color: #dee2e6; 
+  transform: translateY(-1px);
 }
 
 li span {
   flex-grow: 1;
   margin-right: 10px;
+  color: #495057;
 }
+
+.logout-button {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  background-color: #2381e6;
+  transform: translateY(-2px);
+}
+
 
 @media (max-width: 600px) {
   .lista {
@@ -93,12 +160,13 @@ li span {
     gap: 16px;
   }
 
-  input[type="text"] {
-    width: 50%;
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
     margin-bottom: 10px;
   }
 
   button {
-    margin: 5px;
+    width: 100%;
   }
 }

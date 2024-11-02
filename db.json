@@ -1,21 +1,32 @@
 {
-    "users": [
-      { "id": 1, "name": "Alice", "email": "alice@exemplo.com" },
-      { "id": 2, "name": "Bob", "email": "bob@exemplo.com" }
-    ],
-    "shopping-list": [
-      {
-        "id": 1,
-        "title": "Planejar reunião semanal",
-        "userId": 2,
-        "included": false
-      },
-      {
-        "id": 2,
-        "title": "Revisar proposta de orçamento",
-        "userId": 1,
-        "included": false
-      }
-    ]
-  }
-  
+  "users": [
+    {
+      "id": "1",
+      "name": "Alice",
+      "email": "alice@exemplo.com",
+      "password": "alicedofacebook"
+    },
+    {
+      "id": "2",
+      "name": "Bob",
+      "email": "bob@exemplo.com",
+      "password": "bobdarley"
+    }
+  ],
+  "lista-compras": [
+    {
+      "id": "3",
+      "title": "Macarrão",
+      "userId": 1,
+      "included": true,
+      "price": 3
+    },
+    {
+      "id": "c5ce",
+      "title": "churrasco",
+      "userId": 1,
+      "included": false,
+      "price": 2
+    }
+  ]
+}

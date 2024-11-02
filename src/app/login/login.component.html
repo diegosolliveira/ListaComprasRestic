@@ -1,20 +1,23 @@
 <div class="login-container">
-  <h2>Login</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="username">Usuário</label>
-      <input id="username" type="text" formControlName="username" required />
-      <div *ngIf="loginForm.get('username')?.invalid && (loginForm.get('username')?.touched || loginForm.get('username')?.dirty)" class="error">
-        Usuário é obrigatório.
+  <div class="login-card">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" formControlName="email" id="email" placeholder="Digite seu email" required />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <small *ngIf="loginForm.get('email')?.errors?.['required']">O email é obrigatório.</small>
+          <small *ngIf="loginForm.get('email')?.errors?.['email']">Formato de email inválido.</small>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="password">Senha</label>
-      <input id="password" type="password" formControlName="password" required />
-      <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)" class="error">
-        Senha é obrigatória.
+      <div class="form-group">
+        <label for="password">Senha:</label>
+        <input type="password" formControlName="password" id="password" placeholder="Digite sua senha" required />
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <small *ngIf="loginForm.get('password')?.errors?.['required']">A senha é obrigatória.</small>
+        </div>
       </div>
-    </div>
-    <button type="submit" [disabled]="loginForm.invalid">Entrar</button>
-  </form>
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </div>
 </div>
