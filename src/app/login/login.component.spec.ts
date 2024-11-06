@@ -1,21 +1,23 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { LoginComponent } from './login.component';
 
-export class LoginComponent {
-  loginForm: FormGroup;
+describe('LoginComponent', () => {
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
 
-  constructor(private fb: FormBuilder) {
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-  }
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [LoginComponent]
+    })
+    .compileComponents();
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const { username, password } = this.loginForm.value;
-      console.log('Usuário:', username);
-      console.log('Senha:', password);
-    }
-  }
-}
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

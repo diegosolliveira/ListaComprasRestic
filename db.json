@@ -1,13 +1,13 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Alice",
       "email": "alice@exemplo.com",
       "password": "alicedofacebook"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Bob",
       "email": "bob@exemplo.com",
       "password": "bobdarley"
@@ -25,6 +25,13 @@
       "id": "c5ce",
       "title": "churrasco",
       "userId": 1,
+      "included": false,
+      "price": 2
+    },
+    {
+      "id": "03b0",
+      "title": "churrasco",
+      "userId": 2,
       "included": false,
       "price": 2
     }

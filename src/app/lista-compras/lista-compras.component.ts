@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-lista-compras',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './lista-compras.component.html',
   styleUrls: ['./lista-compras.component.css']
 })
@@ -18,17 +14,21 @@ export class ListaComprasComponent implements OnInit {
   newPrice = 0;
   userId: number | null = null;
 
-  constructor(private apiService: ApiService, private router: Router, private authService: AuthService) {}
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
-    this.userId = this.authService.getUserId();
-
-    if (this.authService.isAuthenticated()) {
-      this.getShoppingList();
-    } else {
-      console.error('Usuário não autenticado');
-      this.router.navigate(['/login']);
-    }
+    this.authService.getUserId().subscribe((userId) => {
+      if (userId) {
+        this.userId = userId;
+        this.getShoppingList();
+      } else {
+        console.error('Usuário não encontrado!');
+      }
+    });
   }
 
   getShoppingList() {
@@ -43,7 +43,7 @@ export class ListaComprasComponent implements OnInit {
       );
     }
   }
-  
+
   addItem() {
     if (this.newItem.trim() && this.newPrice > 0 && this.userId !== null) {
       const newShoppingItem = {

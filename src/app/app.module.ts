@@ -1,27 +1,37 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { provideOAuthClient } from 'angular-oauth2-oidc';
+import { provideHttpClient } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListaComprasComponent } from './lista-compras/lista-compras.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
-import { routes } from './app.routes';
-import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-import { provideRouter } from '@angular/router';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ListaComprasComponent } from './lista-compras/lista-compras.component';
 
 @NgModule({
-  imports: [
+  declarations: [
     AppComponent,
-    ListaComprasComponent,
     LoginComponent,
+    ListaComprasComponent
+  ],
+  imports: [
     BrowserModule,
+    CommonModule,
+    RouterModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
-    provideRouter(routes),
-    provideHttpClient(withFetch()),
-    FormsModule,
+    provideClientHydration(),
+    provideHttpClient(),
+    provideOAuthClient(),
+    provideAnimationsAsync()
   ],
-  bootstrap: []
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
