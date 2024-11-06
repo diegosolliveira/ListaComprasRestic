@@ -1,16 +1,28 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Alice",
       "email": "alice@exemplo.com",
       "password": "alicedofacebook"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Bob",
       "email": "bob@exemplo.com",
       "password": "bobdarley"
+    },
+    {
+      "id": "537a",
+      "name": "XXX Tentacion",
+      "email": "lovatoharley@gmail.com",
+      "password": ""
+    },
+    {
+      "id": "e0b4",
+      "name": "Diego Oliveira",
+      "email": "diegolvr14@gmail.com",
+      "password": ""
     }
   ],
   "lista-compras": [
@@ -34,6 +46,20 @@
       "userId": 2,
       "included": false,
       "price": 2
+    },
+    {
+      "id": "4afe",
+      "title": "Macarrão",
+      "userId": "537a",
+      "included": false,
+      "price": 1
+    },
+    {
+      "id": "1c87",
+      "title": "Feijão",
+      "userId": "e0b4",
+      "included": false,
+      "price": 10.99
     }
   ]
 }
